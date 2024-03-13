@@ -1,69 +1,134 @@
-body, html {
-    height: 100%;
+body {
+    font-family: Arial, sans-serif;
     margin: 0;
+    padding: 0;
     display: flex;
     justify-content: center;
     align-items: center;
-    font-family: Arial, sans-serif;
-    background-color: #f0f0f0;
-    color: #333;
+    height: 100vh;
+    background-color: #f4f4f4;
+    background-image: url('https://via.placeholder.com/1500x1000');
+    background-size: cover;
+    background-position: center;
+    animation: rainbowBackground 10s infinite;
+}
+
+@keyframes rainbowBackground {
+    0% { background-color: #ff0000; }
+    16.67% { background-color: #ff7f00; }
+    33.33% { background-color: #ffff00; }
+    50% { background-color: #00ff00; }
+    66.67% { background-color: #0000ff; }
+    83.33% { background-color: #4b0082; }
+    100% { background-color: #9400d3; }
 }
 
 .quiz-container {
-    width: 90%;
-    max-width: 600px;
-    background: white;
-    padding: 20px;
+    background-color: rgba(255, 255, 255, 0.9);
+    padding: 40px;
     border-radius: 8px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+    max-width: 600px;
+    width: 90%; /* Adjusted width */
+    animation: fadeIn 0.5s ease;
 }
 
-.btn {
-    padding: 10px 20px;
-    background-color: #007BFF;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    display: block; /* Make buttons block to fill container */
-    width: 100%; /* Full width */
-    box-sizing: border-box; /* Include padding and border in element's width */
-    margin-bottom: 10px; /* Space between buttons */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(-20px); }
+    to { opacity: 1; transform: translateY(0); }
 }
 
-.btn:hover {
-    background-color: #0056b3;
-}
-
-#progress-container {
-    width: 100%;
-    background-color: #eee;
-    border-radius: 3px;
-    margin: 20px 0;
-    overflow: hidden; /* Ensures the inner bar stays within the rounded corners */
-}
-
-#progress-bar {
-    height: 20px;
-    background-color: #4CAF50;
-    width: 0%; /* Updated dynamically by JS */
-    border-radius: 3px;
+h1 {
     text-align: center;
-    color: white;
-    line-height: 20px; /* Center text vertically */
-    transition: width 0.5s ease-in-out; /* Smooth transition for width changes */
+    margin-bottom: 30px;
+    font-size: 28px;
+    color: #333;
 }
 
 .hidden {
     display: none;
 }
 
-.question {
-    margin: 20px 0;
-    font-size: 20px;
+.btn {
+    display: block;
+    width: 100%;
+    padding: 15px 0;
+    margin-bottom: 20px;
+    background-color: #ff6b6b;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
 }
 
-.btn-grid {
-    display: grid;
-    gap: 10px;
+.btn:hover {
+    background-color: #e74c3c;
+}
+
+.question-container {
+    margin-bottom: 30px;
+}
+
+#question {
+    font-size: 20px;
+    color: #333;
+}
+
+.answer-buttons {
+    display: flex;
+    flex-direction: column;
+}
+
+.answer-buttons button {
+    padding: 10px 20px;
+    margin-bottom: 10px;
+    background-color: #3498db;
+    color: #fff;
+    border: 1px solid #2980b9;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.answer-buttons button:hover {
+    background-color: #2980b9;
+}
+
+.progress-container {
+    margin-bottom: 30px;
+}
+
+.progress-bar {
+    background-color: #2ecc71;
+    height: 20px;
+    border-radius: 4px;
+    margin-bottom: 10px;
+    animation: progressBarAnimation 1s ease;
+}
+
+@keyframes progressBarAnimation {
+    from { width: 0; }
+    to { width: 100%; }
+}
+
+.progress-text {
+    text-align: center;
+    font-size: 16px;
+    color: #666;
+}
+
+.result-container {
+    text-align: center;
+}
+
+.result-container h2 {
+    margin-bottom: 20px;
+    font-size: 24px;
+    color: #333;
+}
+
+.result-container p {
+    font-size: 16px;
+    color: #666;
 }

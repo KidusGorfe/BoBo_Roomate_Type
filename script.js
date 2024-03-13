@@ -76,16 +76,19 @@ document.addEventListener('DOMContentLoaded', () => {
         showResult() {
             this.questionContainer.classList.add('hidden');
             this.resultContainer.classList.remove('hidden');
-
+        
             const sortedTypes = Object.keys(this.typeScores).sort((a, b) => this.typeScores[b] - this.typeScores[a]);
             const primaryType = sortedTypes[0];
             const secondaryType = sortedTypes[1] || 'N/A';
-
+        
+            const primaryDescription = roommateTypeDescriptions[primaryType] || 'Description not available';
+            const secondaryDescription = roommateTypeDescriptions[secondaryType] || 'Description not available';
+        
             this.resultContainer.innerHTML = `
                 <h2>Your Primary Roommate Type: ${primaryType}</h2>
-                <p>${roommateTypeDescriptions[primaryType]}</p>
+                <p>${primaryDescription}</p>
                 <h3>Your Secondary Roommate Type: ${secondaryType}</h3>
-                <p>${secondaryType === 'N/A' ? "You're a unique blend that defies secondary categorization!" : roommateTypeDescriptions[secondaryType]}</p>
+                <p>${secondaryDescription}</p>
             `;
         }
     }

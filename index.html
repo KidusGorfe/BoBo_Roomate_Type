@@ -3,76 +3,181 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>What's Your Roommate Type? Quiz</title>
+    <title>Roommate Quiz</title>
     <style>
-        body, html {
-            height: 100%;
+        /* General Styling */
+        body {
+            font-family: Arial, sans-serif;
             margin: 0;
+            padding: 0;
             display: flex;
             justify-content: center;
             align-items: center;
-            font-family: Arial, sans-serif;
-            background-color: #f0f0f0;
+            height: 100vh;
+            background-color: #f4f4f4;
         }
 
+        /* Quiz Container Styling */
         .quiz-container {
-            width: 90%;
-            max-width: 600px;
-            background: white;
-            padding: 20px;
+            background-color: #fff;
+            padding: 40px;
             border-radius: 8px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            max-width: 600px;
+            width: 100%;
+            animation: fadeIn 0.5s ease; /* Fade-in animation */
         }
 
+        /* Title Styling */
+        h1 {
+            text-align: center;
+            margin-bottom: 30px;
+            font-size: 28px;
+            color: #333;
+        }
+
+        /* Hidden Class */
+        .hidden {
+            display: none;
+        }
+
+        /* Button Styling */
         .btn {
-            padding: 10px 20px;
-            background-color: #007BFF;
-            color: white;
+            display: block;
+            width: 100%;
+            padding: 15px 0;
+            margin-bottom: 20px;
+            background-color: #ff6b6b; /* Red button */
+            color: #fff;
             border: none;
-            border-radius: 5px;
+            border-radius: 4px;
             cursor: pointer;
-            margin: 5px;
+            transition: background-color 0.3s ease;
         }
 
         .btn:hover {
-            background-color: #0056b3;
+            background-color: #e74c3c; /* Darker red on hover */
         }
 
-        #progress-container {
-            width: 100%;
-            background-color: #eee;
-            border-radius: 3px;
-            margin: 20px 0;
+        /* Question Container Styling */
+        .question-container {
+            margin-bottom: 30px;
         }
 
-        #progress-bar {
+        #question {
+            font-size: 20px;
+            color: #333;
+        }
+
+        /* Answer Buttons Styling */
+        .answer-buttons {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .answer-buttons button {
+            padding: 10px 20px;
+            margin-bottom: 10px;
+            background-color: #3498db; /* Blue button */
+            color: #fff;
+            border: 1px solid #2980b9; /* Darker blue border */
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+
+        .answer-buttons button:hover {
+            background-color: #2980b9; /* Darker blue on hover */
+        }
+
+        /* Progress Container Styling */
+        .progress-container {
+            margin-bottom: 30px;
+        }
+
+        .progress-bar {
+            background-color: #2ecc71; /* Green progress bar */
             height: 20px;
-            background-color: #4CAF50;
-            width: 0%; /* Updated by JS */
-            border-radius: 3px;
-            text-align: center;
-            color: white;
-            line-height: 20px;
+            border-radius: 4px;
+            margin-bottom: 10px;
+            animation: progressBarAnimation 1s ease;
         }
 
-        .hidden {
-            display: none;
+        /* Progress Text Styling */
+        .progress-text {
+            text-align: center;
+            font-size: 16px;
+            color: #666;
+        }
+
+        /* Result Container Styling */
+        .result-container {
+            text-align: center;
+        }
+
+        .result-container h2 {
+            margin-bottom: 20px;
+            font-size: 24px;
+            color: #333;
+        }
+
+        .result-container p {
+            font-size: 16px;
+            color: #666;
+        }
+
+        /* Animation Keyframes */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(-20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes progressBarAnimation {
+            from { width: 0; }
+            to { width: 100%; }
+        }
+
+        /* Rainbow Background Animation */
+        body {
+            animation: rainbowBackground 10s infinite; /* Rainbow background animation */
+        }
+
+        @keyframes rainbowBackground {
+            0% { background-color: #ff0000; }
+            16.67% { background-color: #ff7f00; }
+            33.33% { background-color: #ffff00; }
+            50% { background-color: #00ff00; }
+            66.67% { background-color: #0000ff; }
+            83.33% { background-color: #4b0082; }
+            100% { background-color: #9400d3; }
         }
     </style>
 </head>
 <body>
-    <div class="quiz-container">
-        <button id="start-btn" class="btn">Start Quiz</button>
-        <div id="progress-container" class="hidden">
-            <div id="progress-bar">0%</div>
-        </div>
-        <div id="question-container" class="hidden">
-            <div id="question" class="question"></div>
-            <div id="answer-buttons" class="btn-grid"></div>
-        </div>
-        <div id="result-container" class="hidden"></div>
+
+<div class="quiz-container">
+    <h1>Roommate Quiz</h1>
+
+    <div class="progress-container">
+        <div class="progress-bar" id="progress-bar"></div>
+        <div class="progress-text" id="progress-text"></div>
     </div>
 
-    <script src="script.js"></script>
+    <div class="question-container" id="question-container">
+        <p id="question"></p>
+        <div class="answer-buttons" id="answer-buttons"></div>
+    </div>
+
+    <div class="result-container hidden" id="result-container">
+        <h2>Your Primary Roommate Type: <span id="primary-type"></span></h2>
+        <p>Description here...</p>
+        <h3>Your Secondary Roommate Type: <span id="secondary-type"></span></h3>
+        <p>Description here...</p>
+    </div>
+
+    <button id="start-btn" class="btn">Start Quiz</button>
+</div>
+
+<script src="script.js"></script>
 </body>
 </html>
