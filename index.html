@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>What's Your Roommate Type? Quiz</title>
+    <style>
+        body, html {
+            height: 100%;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+        }
+
+        .quiz-container {
+            width: 90%;
+            max-width: 600px;
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .btn {
+            padding: 10px 20px;
+            background-color: #007BFF;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin: 5px;
+        }
+
+        .btn:hover {
+            background-color: #0056b3;
+        }
+
+        #progress-container {
+            width: 100%;
+            background-color: #eee;
+            border-radius: 3px;
+            margin: 20px 0;
+        }
+
+        #progress-bar {
+            height: 20px;
+            background-color: #4CAF50;
+            width: 0%; /* Updated by JS */
+            border-radius: 3px;
+            text-align: center;
+            color: white;
+            line-height: 20px;
+        }
+
+        .hidden {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="quiz-container">
+        <button id="start-btn" class="btn">Start Quiz</button>
+        <div id="progress-container" class="hidden">
+            <div id="progress-bar">0%</div>
+        </div>
+        <div id="question-container" class="hidden">
+            <div id="question" class="question"></div>
+            <div id="answer-buttons" class="btn-grid"></div>
+        </div>
+        <div id="result-container" class="hidden"></div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
