@@ -4,7 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Roommate Quiz</title>
-    <link rel="stylesheet" href="style.css">
+    <!-- Use relative path for CSS file -->
+    <link rel="stylesheet" href="./styling/style.css"> 
 </head>
 <body>
 
@@ -16,21 +17,22 @@
         <div class="progress-text" id="progress-text"></div>
     </div>
 
-    <div class="question-container" id="question-container">
+    <div class="question-container hidden" id="question-container">
         <p id="question"></p>
         <div class="answer-buttons" id="answer-buttons"></div>
     </div>
 
     <div class="result-container hidden" id="result-container">
-        <h2>Your Primary Roommate Type: <span id="primary-type"></span></h2>
-        <p>Description here...</p>
-        <h3>Your Secondary Roommate Type: <span id="secondary-type"></span></h3>
-        <p>Description here...</p>
+        <!-- This will be populated by script.js based on quiz results -->
     </div>
 
     <button id="start-btn" class="btn">Start Quiz</button>
 </div>
 
-<script src="script.js"></script>
+<!-- Use relative paths for JavaScript files -->
+<script src="./Questions_Descriptions/descriptions.js"></script>
+<script src="./Questions_Descriptions/questions.js"></script>
+<script src="./logic/script.js"></script>
+
 </body>
 </html>

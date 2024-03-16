@@ -1,0 +1,120 @@
+/* Global Styles */
+body {
+    font-family: 'Poppins', sans-serif; /* Modern, readable font */
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-color: #fffdde; /* Light, welcoming background color */
+    color: #333;
+}
+
+/* Quiz Container */
+.quiz-container {
+    background-color: #ffffff;
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 8px 16px rgba(0,0,0,0.15);
+    max-width: 600px;
+    width: 100%;
+    animation: popIn 0.5s cubic-bezier(0.175, 0.885, 0.320, 1.275) forwards;
+    border: 1px solid #eee; /* Subtle border */
+}
+
+/* Pop In Animation */
+@keyframes popIn {
+    0% {
+        opacity: 0;
+        transform: scale(0.9);
+    }
+    70% {
+        transform: scale(1.05);
+    }
+    100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+/* Button Styles */
+.btn, .answer-buttons button {
+    background-color: #ff5a5f; /* Vibrant button color */
+    color: #ffffff;
+    border: none;
+    border-radius: 50px; /* More pronounced rounded edges */
+    padding: 12px 24px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: transform 0.2s, box-shadow 0.2s;
+    margin-top: 10px;
+    width: auto; /* Auto-width for content-based sizing */
+    display: inline-block; /* Align buttons inline */
+    text-transform: none; /* Keep text case as is */
+}
+
+.btn:hover, .answer-buttons button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
+
+/* Enhancing Progress Bar */
+.progress-bar {
+    background-color: #ffc107; /* Cheerful progress bar color */
+    height: 8px; /* Thicker bar for better visibility */
+    border-radius: 4px;
+}
+
+.progress-text {
+    font-size: 0.875rem;
+    color: #888;
+    margin-top: 15px;
+}
+
+/* Result Container Styling */
+.result-container {
+    padding: 20px 0;
+    text-align: center;
+    background-color: #f8f9fa; /* Slightly different background for contrast */
+    border-radius: 8px;
+    margin-top: 20px; /* Space from questions */
+}
+
+.result-container h2, .result-container p {
+    margin: 15px 0;
+}
+
+.result-container h2 {
+    color: #007bff; /* Consistent color with buttons for branding */
+    font-size: 1.75rem;
+}
+
+.result-container p {
+    color: #666;
+    font-size: 1rem;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .quiz-container {
+        padding: 20px;
+    }
+    .btn, .answer-buttons button {
+        font-size: 0.9rem;
+    }
+}
+
+/* Additional Styling */
+/* Consider introducing gradients, hover effects for each answer option, and playful icons to match BuzzFeed's dynamic design. */
+
+/* Background Gradient Example */
+body {
+    background-image: linear-gradient(135deg, #ff9a9e 10%, #fad0c4 100%);
+}
+
+/* Hover Effect for Answer Buttons */
+.answer-buttons button:hover {
+    background-color: #ff3d47; /* Darker shade on hover */
+}
