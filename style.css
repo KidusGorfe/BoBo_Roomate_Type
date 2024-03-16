@@ -1,151 +1,151 @@
-/* Body Styling */
+/* Enhanced Global Styling */
 body {
-    font-family: Arial, sans-serif;
+    font-family: 'Arial', sans-serif;
     margin: 0;
     padding: 0;
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100vh;
-    background-color: #f4f4f4;
-    background-image: url('https://via.placeholder.com/1500x1000');
+    min-height: 100vh;
+    background-color: #262626; /* Richer dark background */
+    background-image: linear-gradient(rgba(38, 38, 38, 0.8), rgba(38, 38, 38, 0.8)), url('https://via.placeholder.com/1500x1000');
     background-size: cover;
     background-position: center;
     animation: rainbowBackground 10s infinite;
-    overflow: hidden; /* Prevent scrolling */
+    overflow: hidden; /* Enhanced scrolling prevention */
 }
 
-/* Rainbow Background Animation */
+/* Improved Rainbow Background Animation for smoother transitions */
 @keyframes rainbowBackground {
-    0% { background-color: #ff0000; }
-    16.67% { background-color: #ff7f00; }
-    33.33% { background-color: #ffff00; }
-    50% { background-color: #00ff00; }
-    66.67% { background-color: #0000ff; }
-    83.33% { background-color: #4b0082; }
-    100% { background-color: #9400d3; }
+    0%, 100% { background-color: #9400d3; }
+    14% { background-color: #4b0082; }
+    28% { background-color: #0000ff; }
+    42% { background-color: #00ff00; }
+    57% { background-color: #ffff00; }
+    71% { background-color: #ff7f00; }
+    85% { background-color: #ff0000; }
 }
 
-/* Quiz Container Styling */
+/* Refined Quiz Container for better clarity and visual appeal */
 .quiz-container {
-    background-color: rgba(255, 255, 255, 0.9);
+    background-color: rgba(255, 255, 255, 0.95);
     padding: 40px;
-    border-radius: 8px;
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
     max-width: 600px;
-    width: 90%;
-    animation: fadeIn 0.5s ease;
-    position: relative; /* For z-index stacking */
-    z-index: 1; /* Ensure quiz container is on top */
+    width: auto;
+    animation: fadeIn 0.5s ease-out;
+    position: relative; 
+    z-index: 2; /* Enhanced layering */
 }
 
-/* Fade-in Animation */
+/* Enhanced Fade-in Animation for smoother introduction */
 @keyframes fadeIn {
-    from { opacity: 0; transform: translateY(-20px); }
-    to { opacity: 1; transform: translateY(0); }
+    0% { opacity: 0; transform: translateY(-30px); }
+    100% { opacity: 1; transform: translateY(0); }
 }
 
-/* Title Styling */
+/* Title Styling Improvements for better focus and visibility */
 h1 {
     text-align: center;
     margin-bottom: 30px;
-    font-size: 32px; /* Increased font size */
-    color: #333;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1); /* Added text shadow */
+    font-size: 2.25rem; /* Responsive font size */
+    color: #000000;
+    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.2); /* More pronounced shadow for readability */
 }
 
-/* Hidden Class */
+/* Simplified Hidden Class for ease of use */
 .hidden {
     display: none;
 }
 
-/* Button Styling */
+/* Button Enhancements for a more interactive user experience */
 .btn {
     display: block;
     width: 100%;
-    padding: 15px 0;
+    padding: 16px 0;
     margin-bottom: 20px;
-    background-color: #ff6b6b;
-    color: #fff;
+    background-color: #ff6b6b; /* Vivid color */
+    color: #FFFFFF;
     border: none;
-    border-radius: 4px;
+    border-radius: 5px;
     cursor: pointer;
-    transition: background-color 0.3s ease;
+    transition: all 0.3s ease;
+    font-size: 1.25rem; /* Responsive font size */
+    text-transform: uppercase;
+    letter-spacing: 0.05em; /* Improved legibility */
 }
 
-.btn:hover {
-    background-color: #e74c3c;
+.btn:hover, .btn:focus {
+    background-color: #e74c3c; /* Darker shade for interaction */
+    transform: scale(1.02); /* Subtle interaction feedback */
 }
 
-/* Question Container Styling */
+/* Question Container Enhancements for clarity and focus */
 .question-container {
     margin-bottom: 30px;
 }
 
 #question {
-    font-size: 24px; /* Increased font size */
-    color: #333;
+    font-size: 1.5rem; /* Responsive font size */
+    color: #000000;
 }
 
-/* Answer Buttons Styling */
-.answer-buttons {
-    display: flex;
-    flex-direction: column;
-}
-
+/* Answer Button Styling Enhancements for a cleaner, more engaging look */
 .answer-buttons button {
-    padding: 15px 20px; /* Increased padding */
+    padding: 16px 20px;
     margin-bottom: 10px;
-    background-color: #3498db;
-    color: #fff;
-    border: 1px solid #2980b9;
-    border-radius: 4px;
+    background-color: #3498db; /* Bright, engaging color */
+    color: #FFFFFF;
+    border: 2px solid #2980b9; /* More pronounced border */
+    border-radius: 5px;
     cursor: pointer;
-    transition: background-color 0.3s ease, color 0.3s ease;
+    transition: all 0.3s ease;
+    font-size: 1.125rem; /* Responsive font size */
+    text-transform: uppercase;
+    letter-spacing: 0.05em; /* Improved legibility */
 }
 
-.answer-buttons button:hover {
-    background-color: #2980b9;
+.answer-buttons button:hover, .answer-buttons button:focus {
+    background-color: #2980b9; /* Deeper interaction color */
+    transform: translateY(-2px); /* Lift effect for feedback */
 }
 
-/* Progress Container Styling */
+/* Progress Bar Container and Animation Enhancements for better visual tracking */
 .progress-container {
     margin-bottom: 30px;
 }
 
 .progress-bar {
-    background-color: #2ecc71;
+    background-color: #2ecc71; /* Positive, progress-indicative color */
     height: 20px;
-    border-radius: 4px;
-    margin-bottom: 10px;
-    animation: progressBarAnimation 1s ease;
-}
-
-@keyframes progressBarAnimation {
-    from { width: 0; }
-    to { width: 100%; }
+    border-radius: 5px;
+    width: 0%; /* Start with no fill */
+    transition: width 1s ease-out; /* Smooth transition for width changes */
 }
 
 .progress-text {
     text-align: center;
-    font-size: 16px;
-    color: #666;
+    font-size: 1rem; /* Responsive font size */
+    color: #FFFFFF;
 }
 
-/* Result Container Styling */
+/* Result Styling Enhancements for clarity and emphasis */
 .result-container {
     text-align: center;
 }
 
-.result-container h2 {
+.result-container h2, .result-container p {
     margin-bottom: 20px;
-    font-size: 28px; /* Increased font size */
-    color: #333;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1); /* Added text shadow */
+    color: #000000; /* Consistent color for readability */
+    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.2); /* Enhanced readability */
+}
+
+.result-container h2 {
+    font-size: 2rem; /* Responsive and prominent font size */
 }
 
 .result-container p {
-    font-size: 18px; /* Increased font size */
-    color: #666;
-    line-height: 1.6; /* Improved line spacing */
+    font-size: 1.125rem; /* Comfortable reading size */
+    line-height: 1.6; /* Improved readability */
 }
