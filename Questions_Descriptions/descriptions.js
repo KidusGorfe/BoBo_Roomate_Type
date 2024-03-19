@@ -8,8 +8,8 @@ var roommateTypeDescriptions = {
         gifUrl: '<img src="https://media.giphy.com/media/CX67hRmiw24o6Kvzfq/giphy.gif" width="480" height="270">'
     },
     "The Homebody": {
-        description: "The Homebody has likely nested in the living room with a personal blanket fort. They treat the house like a personal hobbit hole, perfect for hibernation and not seeing the sun for days. They believe 'going out' is just a myth created by extroverts.",
-        gifUrl: '<img src="https://media.giphy.com/media/CX67hRmiw24o6Kvzfq/giphy.gif" width="480" height="270">'
+        "description": "The Homebody has likely nested in the living room with a personal blanket fort. They treat the house like a personal hobbit hole, perfect for hibernation and not seeing the sun for days. They believe 'going out' is just a myth created by extroverts.",
+        gifUrl: '<img src="https://media.giphy.com/media/UsSqh1tDV8rVUZCJF3/giphy.gif" width="480" height="480">'
     },
     "The Adventurer": {
         description: "The Adventurer is a mythical creature you're not sure actually lives in the house. Evidence of their existence includes a mysterious collection of souvenirs from around the world and occasional sightings at odd hours. They live by the motto, 'Why sleep when you can explore?'",
