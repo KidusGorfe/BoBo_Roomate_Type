@@ -9,34 +9,42 @@
 <body>
 
 <!-- Introduction Container -->
-<div class="introduction-container" id="intro-container">
-    <h1>Welcome to the Roommate Quiz!</h1>
-    <p>Find out what type of roommate you are.</p>
-    <button id="begin-quiz-btn" class="btn">Start Quiz</button>
+<div class="container" id="intro-container">
+    <div class="introduction-container">
+        <h1>Welcome to the Roommate Quiz!</h1>
+        <p>Find out what type of roommate you are.</p>
+        <button id="begin-quiz-btn" class="btn">Start Quiz</button>
+    </div>
 </div>
 
-<!-- Email Signup Container (Initially Hidden) -->
-<div class="email-signup-container hidden" id="email-signup-container">
-    <p>Sign up with your email to start the quiz!</p>
-    <form id="email-signup-form">
-        <input type="email" id="email-input" placeholder="Enter your email" required>
-        <button type="submit" class="btn">Sign Up</button>
-    </form>
+<!-- Email Signup Container -->
+<div class="container hidden" id="email-signup-container">
+    <div class="email-signup-container">
+        <p>Sign up with your email to start the quiz!</p>
+        <form id="email-signup-form">
+            <input type="text" id="name-input" placeholder="Enter your name" required>
+            <input type="email" id="email-input" placeholder="Enter your email" required>
+            <button type="submit" class="btn">Sign Up</button>
+        </form>
+    </div>
 </div>
 
-<!-- Quiz Container (Initially Hidden) -->
-<div class="quiz-container hidden" id="question-container">
+<!-- Quiz Container -->
+<div class="container hidden" id="quiz-container">
     <div class="progress-container">
         <div class="progress-bar" id="progress-bar"></div>
         <div class="progress-text" id="progress-text"></div>
     </div>
 
-    <div class="question-container" id="question-container">
+    <div class="question-container" id="actual-question-container">
         <p id="question"></p>
         <div class="answer-buttons" id="answer-buttons"></div>
     </div>
+</div>
 
-    <div class="result-container hidden" id="result-container">
+<!-- Result Container -->
+<div class="container hidden" id="result-container">
+    <div class="result-content">
         <!-- Results will be populated here -->
     </div>
 </div>

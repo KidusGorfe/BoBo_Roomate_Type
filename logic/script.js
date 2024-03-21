@@ -1,62 +1,70 @@
-console.log('Initializing quiz game...');
+document.addEventListener('DOMContentLoaded', () => {
+    console.log('Initializing quiz game...');
 
-class QuizGame {
-    constructor(questions, introContainerId, emailSignupContainerId, emailFormId, questionContainerId, answerButtonsElementId, resultContainerId, progressBarId, progressBarTextId, descriptions) {
-        this.questions = questions;
-        this.introContainer = document.getElementById(introContainerId);
-        this.emailSignupContainer = document.getElementById(emailSignupContainerId);
-        this.emailForm = document.getElementById(emailFormId);
-        this.questionContainer = document.getElementById(questionContainerId);
-        this.answerButtonsElement = document.getElementById(answerButtonsElementId);
-        this.resultContainer = document.getElementById(resultContainerId);
-        this.progressBar = document.getElementById(progressBarId);
-        this.progressBarText = document.getElementById(progressBarTextId);
-        this.descriptions = descriptions;
-        this.currentQuestionIndex = 0;
-        this.typeScores = {};
+    class QuizGame {
+        constructor() {
+            console.log('Initializing QuizGame instance...');
+            this.introContainer = document.getElementById('intro-container');
+            this.emailSignupContainer = document.getElementById('email-signup-container');
+            this.quizContainer = document.getElementById('quiz-container');
+            this.questionElement = document.getElementById('question');
+            this.answerButtonsElement = document.getElementById('answer-buttons');
+            this.resultContainer = document.getElementById('result-container');
+            this.progressBar = document.getElementById('progress-bar');
+            this.progressBarText = document.getElementById('progress-text');
+            this.currentQuestionIndex = 0;
+            this.typeScores = {};
+            this.userName = '';
 
-        this.initializeIntro();
-    }
+            this.questions = window.questions;
+            this.roommateTypeDescriptions = window.roommateTypeDescriptions;
 
-    initializeIntro() {
-        console.log('Initializing intro...');
-        const beginQuizBtn = document.getElementById('begin-quiz-btn');
-        beginQuizBtn.addEventListener('click', () => {
-            console.log('Begin quiz button clicked...');
-            this.introContainer.classList.add('hidden');
-            this.emailSignupContainer.classList.remove('hidden');
-        });
-
-        // Start the quiz after email submission
-        this.emailForm.addEventListener('submit', (event) => {
-            console.log('Email form submitted...');
-            event.preventDefault(); // Prevent the form from actually submitting
-            this.startQuiz();
-        });
-    }
-
-    startQuiz() {
-        console.log('Starting the quiz...');
-        this.emailSignupContainer.classList.add('hidden');
-        this.questionContainer.classList.remove('hidden');
-        this.setNextQuestion();
-    }
-
-    setNextQuestion() {
-        console.log('Setting next question...');
-        if (this.currentQuestionIndex < this.questions.length) {
-            this.showQuestion(this.questions[this.currentQuestionIndex]);
-        } else {
-            this.finishQuiz();
+            this.setupEventListeners();
         }
-    }
 
-    showQuestion(question) {
-        console.log('Showing question...');
-        this.resetState();
-        const questionElement = document.getElementById('question');
-        if (questionElement) {
-            questionElement.innerText = question.text;
+        setupEventListeners() {
+            console.log('Setting up event listeners...');
+            document.getElementById('begin-quiz-btn').addEventListener('click', () => {
+                console.log('Begin quiz button clicked.');
+                this.introContainer.classList.add('hidden');
+                this.emailSignupContainer.classList.remove('hidden');
+            });
+
+            document.getElementById('email-signup-form').addEventListener('submit', (event) => {
+                console.log('Email signup form submitted.');
+                event.preventDefault();
+                this.userName = document.getElementById('name-input').value.trim();
+                if (this.userName === '') {
+                    alert('Please enter your name.');
+                    return;
+                }
+                this.emailSignupContainer.classList.add('hidden');
+                this.startQuiz();
+            });
+        }
+
+        startQuiz() {
+            console.log('Starting quiz...');
+            this.quizContainer.classList.remove('hidden');
+            this.setNextQuestion();
+        }
+
+        setNextQuestion() {
+            console.log('Setting up next question...');
+            if (this.currentQuestionIndex < this.questions.length) {
+                console.log('Displaying question', this.currentQuestionIndex + 1);
+                this.showQuestion(this.questions[this.currentQuestionIndex]);
+            } else {
+                console.log('All questions answered. Finishing quiz...');
+                this.finishQuiz();
+            }
+        }
+
+        showQuestion(question) {
+            console.log('Displaying question:', question.text);
+            this.questionElement.innerText = question.text;
+            this.answerButtonsElement.innerHTML = ''; // Clear previous buttons
+
             question.answers.forEach(answer => {
                 const button = document.createElement('button');
                 button.innerText = answer.text;
@@ -64,81 +72,56 @@ class QuizGame {
                 button.addEventListener('click', () => this.selectAnswer(answer));
                 this.answerButtonsElement.appendChild(button);
             });
+
             this.updateProgressBar();
-        } else {
-            console.error("Question element not found.");
         }
-    }
 
-    resetState() {
-        console.log('Resetting state...');
-        while (this.answerButtonsElement.firstChild) {
-            this.answerButtonsElement.removeChild(this.answerButtonsElement.firstChild);
-        }
-    }
-
-    selectAnswer(answer) {
-        console.log('Answer selected...');
-        this.typeScores[answer.type] = (this.typeScores[answer.type] || 0) + 1;
-        this.currentQuestionIndex++;
-        if (this.currentQuestionIndex < this.questions.length) {
+        selectAnswer(answer) {
+            console.log('Selected answer:', answer.text);
+            this.typeScores[answer.type] = (this.typeScores[answer.type] || 0) + 1;
+            this.currentQuestionIndex++;
             this.setNextQuestion();
-        } else {
-            this.finishQuiz();
         }
-    }
 
-    updateProgressBar() {
-        console.log('Updating progress bar...');
-        const progressPercentage = ((this.currentQuestionIndex + 1) / this.questions.length) * 100;
-        this.progressBar.style.width = `${progressPercentage}%`;
-        this.progressBarText.innerText = `Question ${this.currentQuestionIndex + 1} of ${this.questions.length}`;
-    }
+        updateProgressBar() {
+            const progress = ((this.currentQuestionIndex + 1) / this.questions.length) * 100;
+            console.log('Updating progress bar:', progress.toFixed(2), '%');
+            this.progressBar.style.width = `${progress}%`;
+            this.progressBarText.innerText = `Question ${this.currentQuestionIndex + 1} of ${this.questions.length}`;
+        }
 
-    finishQuiz() {
-        console.log('Finishing quiz...');
-        this.questionContainer.classList.add('hidden');
-        this.showResult();
-    }
+        finishQuiz() {
+            console.log('Quiz finished. Displaying result...');
+            this.quizContainer.classList.add('hidden');
+            this.resultContainer.classList.remove('hidden');
+            this.showResult();
+        }
 
-    showResult() {
-        console.log('Showing result...');
-        console.log('Descriptions:', this.descriptions);
-    
-        this.resultContainer.classList.remove('hidden');
-        const sortedTypes = Object.keys(this.typeScores).sort((a, b) => this.typeScores[b] - this.typeScores[a]);
-        const primaryType = sortedTypes[0];
-        console.log('Primary Type:', primaryType);
-    
-        const primaryInfo = this.descriptions[primaryType];
-        console.log('Primary Info:', primaryInfo);
-    
-        if (primaryInfo) {
-            const resultHtml = `
-                <h2>Your Primary Roommate Type: ${primaryType}</h2>
-                <p>${primaryInfo.description}</p>
-                ${primaryInfo.gifUrl}
-            `;
+        showResult() {
+            console.log('Displaying result...');
+            
+            const sortedTypes = Object.keys(this.typeScores).sort((a, b) => this.typeScores[b] - this.typeScores[a]);
+            const primaryType = sortedTypes[0];
+            const secondaryType = sortedTypes[1] || null; // Handle case where there might not be a clear secondary type.
+            
+            const primaryInfo = this.roommateTypeDescriptions[primaryType];
+            const secondaryInfo = secondaryType ? this.roommateTypeDescriptions[secondaryType] : null;
+            
+            let resultHtml = `<h2>Your Primary Roommate Type: ${primaryType}</h2><p>${primaryInfo.description}</p><img src="${primaryInfo.gifUrl}" alt="GIF for ${primaryType}" style="max-width:100%; height:auto;">`;
+            
+            if (secondaryInfo) {
+                resultHtml += `<h2>Your Secondary Roommate Type: ${secondaryType}</h2><p>${secondaryInfo.description}</p><img src="${secondaryInfo.gifUrl}" alt="GIF for ${secondaryType}" style="max-width:100%; height:auto;">`;
+            }
+            
             this.resultContainer.innerHTML = resultHtml;
-        } else {
-            console.error("Description not found for the primary roommate type.");
         }
     }
-}
 
-if (window.questions && window.roommateTypeDescriptions) {
-    new QuizGame(
-        window.questions,
-        'intro-container',
-        'email-signup-container',
-        'email-signup-form',
-        'question-container',
-        'answer-buttons',
-        'result-container',
-        'progress-bar',
-        'progress-text',
-        window.roommateTypeDescriptions
-    );
-} else {
-    console.error('Quiz data not loaded properly.');
-}
+    // Initialization check.
+    if (window.questions && window.roommateTypeDescriptions) {
+        console.log('Questions and descriptions available. Initializing QuizGame...');
+        new QuizGame();
+    } else {
+        console.error('Quiz initialization failed: Missing questions or descriptions.');
+    }
+});

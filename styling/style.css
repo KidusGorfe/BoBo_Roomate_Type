@@ -1,15 +1,28 @@
 /* Global Styles */
 body {
-    font-family: 'Poppins', sans-serif; /* Modern, readable font */
+    font-family: 'Poppins', sans-serif;
     margin: 0;
     padding: 0;
     display: flex;
     justify-content: center;
     align-items: center;
     min-height: 100vh;
-    background-color: #fffdde; /* Light, welcoming background color */
-    color: #333;
+    background-color: #fffdde;
+    color: #333; /* Enhanced readability against a light background */
     background-image: linear-gradient(135deg, #ff9a9e 10%, #fad0c4 100%);
+}
+
+/* Container Styles */
+.container {
+    background-color: #ffffff;
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+    max-width: 600px;
+    width: 100%;
+    border: 1px solid #eee;
+    margin-top: 20px;
+    transition: opacity 0.5s ease-in-out; /* Smooth transition for visibility changes */
 }
 
 /* Introduction Container */
@@ -21,92 +34,81 @@ body {
 
 .introduction-container h1 {
     margin-bottom: 15px;
+    font-size: 2rem;
+    color: #ff5a5f;
 }
 
-/* Quiz Container */
-.quiz-container, .email-signup-container {
-    background-color: #ffffff;
-    padding: 30px;
-    border-radius: 15px;
-    box-shadow: 0 8px 16px rgba(0,0,0,0.15);
-    max-width: 600px;
-    width: 100%;
-    animation: popIn 0.5s cubic-bezier(0.175, 0.885, 0.320, 1.275) forwards;
-    border: 1px solid #eee; /* Subtle border */
-    margin-top: 20px; /* Ensures spacing from top */
-}
-
-/* Pop In Animation */
-@keyframes popIn {
-    0% {
-        opacity: 0;
-        transform: scale(0.9);
-    }
-    70% {
-        transform: scale(1.05);
-    }
-    100% {
-        opacity: 1;
-        transform: scale(1);
-    }
+.introduction-container p {
+    font-size: 1.2rem;
+    line-height: 1.6;
+    color: #666; /* Slightly darker for better readability */
 }
 
 /* Button Styles */
 .btn, .answer-buttons button {
-    background-color: #ff5a5f; /* Vibrant button color */
+    background-color: #ff5a5f;
     color: #ffffff;
     border: none;
-    border-radius: 50px; /* More pronounced rounded edges */
+    border-radius: 50px;
     padding: 12px 24px;
     font-size: 1rem;
     font-weight: 600;
     cursor: pointer;
     transition: transform 0.2s, box-shadow 0.2s;
     margin-top: 10px;
-    width: auto; /* Auto-width for content-based sizing */
-    display: inline-block; /* Align buttons inline */
-    text-transform: none; /* Keep text case as is */
+    width: auto;
+    display: inline-block;
 }
 
 .btn:hover, .answer-buttons button:hover {
     transform: translateY(-3px);
-    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
-/* Enhancing Progress Bar */
+/* Progress Bar */
 .progress-bar {
-    background-color: #ffc107; /* Cheerful progress bar color */
-    height: 8px; /* Thicker bar for better visibility */
+    background-color: #ffc107;
+    height: 8px;
     border-radius: 4px;
 }
 
 .progress-text {
     font-size: 0.875rem;
-    color: #888;
+    color: #666; /* Darkened for better contrast and readability */
     margin-top: 15px;
 }
 
-/* Result Container Styling */
+/* Result Container */
 .result-container {
-    padding: 20px 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
     text-align: center;
-    background-color: #f8f9fa; /* Slightly different background for contrast */
+    background-color: #f8f9fa;
     border-radius: 8px;
-    margin-top: 20px; /* Space from questions */
+    margin-top: 20px;
+    width: 100%;
+    min-height: 300px; /* Adjusted for visibility and vertical centering */
+    padding: 20px 0;
+    opacity: 1; /* Ensure full visibility when not hidden */
 }
 
+.result-content img {
+    display: block;
+    margin: 0 auto; /* This centers the image within its container */
+    max-width: 100%; /* Ensures the image is responsive and does not overflow its container */
+    height: auto; /* Maintains aspect ratio */
+}
+
+
 .result-container h2, .result-container p {
-    margin: 15px 0;
+    color: #007bff; /* Consistent and improved readability */
+    font-size: 1rem;
 }
 
 .result-container h2 {
-    color: #007bff; /* Consistent color with buttons for branding */
     font-size: 1.75rem;
-}
-
-.result-container p {
-    color: #666;
-    font-size: 1rem;
 }
 
 /* Email Signup Container */
@@ -115,36 +117,23 @@ body {
     margin-bottom: 20px;
 }
 
-#email-input {
+#email-input, #name-input {
     border: 2px solid #ff5a5f;
     border-radius: 50px;
     padding: 10px 20px;
     font-size: 1rem;
     margin-top: 10px;
-    width: calc(100% - 80px); /* Adjust width for padding */
+    width: calc(100% - 80px);
     max-width: 400px;
 }
 
-.email-signup-container button {
-    background-color: #ff5a5f;
-    color: white;
-    border: none;
-    border-radius: 50px;
-    padding: 10px 20px;
-    font-size: 1rem;
-    cursor: pointer;
-    margin-top: 10px;
-    margin-left: 10px;
-    transition: background-color 0.3s;
-}
-
 .email-signup-container button:hover {
-    background-color: #e04848; /* Darker shade on hover */
+    background-color: #e04848; /* Consistent interactive feedback across buttons */
 }
 
 /* Responsive Design */
 @media (max-width: 768px) {
-    .quiz-container, .email-signup-container {
+    .container {
         padding: 20px;
     }
     .btn, .answer-buttons button {
@@ -154,9 +143,11 @@ body {
 
 /* Hover Effect for Answer Buttons */
 .answer-buttons button:hover {
-    background-color: #ff3d47; /* Darker shade on hover */
+    background-color: #ff3d47; /* Consistent, slightly darker hover state for buttons */
 }
 
 .hidden {
     display: none;
+    /* Remove opacity and pointer-events rules if you're using display: none */
+    transition: opacity 0.5s ease-in-out; /* This can be removed since display property does not animate */
 }

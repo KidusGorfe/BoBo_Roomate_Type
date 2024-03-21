@@ -1,155 +1,189 @@
 var questions = [
+  // Keep the first four questions as they already cover a range of types.
   {
     text: "How do you typically spend your Saturday night?",
     answers: [
-      { text: "Organizing my room", type: "The Organizer" },
-      { text: "Out with friends until dawn", type: "The Social Butterfly" },
-      { text: "Curled up with a good book", type: "The Bookworm" },
-      { text: "Experimenting with new recipes", type: "The Chef" }
+      { text: "Organizing my room for the week ahead", type: "The Organizer" },
+      { text: "Hosting a game night with friends", type: "The Social Butterfly" },
+      { text: "Enjoying a quiet evening with a book", type: "The Bookworm" },
+      { text: "Cooking a delicious new recipe", type: "The Chef" }
+    ]
+  },
+  // Modified question to include missing types and ensure coverage.
+  {
+    text: "What's your reaction to a sunny day after a week of rain?",
+    answers: [
+      { text: "Plan an outdoor adventure", type: "The Adventurer" },
+      { text: "Enjoy gardening or outdoor yoga", type: "The Zen Master" },
+      { text: "Catch up on sleep or indoor activities", type: "The Homebody" },
+      { text: "Work on a tech project with the windows open", type: "The Tech Wizard" }
     ]
   },
   {
-    text: "Your ideal vacation involves:",
+    text: "How do you contribute to a shared living space?",
     answers: [
-      { text: "A meticulously planned itinerary", type: "The Organizer" },
-      { text: "Anything with adrenaline and adventure", type: "The Adventurer" },
-      { text: "Staying home and relaxing", type: "The Homebody" },
-      { text: "A tech-free retreat", type: "The Zen Master" }
+      { text: "Keeping common areas clean and tidy", type: "The Organizer" },
+      { text: "Decorating with plants and greenery", type: "The Green Thumb" },
+      { text: "Ensuring the house is always lively and fun", type: "The Social Butterfly" },
+      { text: "Creating quiet, contemplative spaces", type: "The Zen Master" }
     ]
   },
   {
-    text: "When it comes to plants in the house, you:",
+    text: "How do you unwind after a stressful day?",
     answers: [
-      { text: "Love them, the more the better", type: "The Green Thumb" },
-      { text: "Prefer low-maintenance options", type: "The Green Thumb" },
-      { text: "Enjoy the aesthetic but forget to water them", type: "The Night Owl" },
-      { text: "Don't really care for plants", type: "The Tech Wizard" }
+      { text: "By working out or going for a run", type: "The Early Bird" },
+      { text: "By having some alone time", type: "The Night Owl" },
+      { text: "By taking care of the plants around the house", type: "The Green Thumb" },
+      { text: "By meditating or doing yoga", type: "The Zen Master" }
     ]
   },
   {
-    text: "Your approach to cleaning is:",
+    text: "When learning something new, you prefer:",
     answers: [
-      { text: "A strict weekly schedule", type: "The Organizer" },
-      { text: "When I notice things getting messy", type: "The Social Butterfly" },
-      { text: "I clean when I have nothing else to do", type: "The Homebody" },
-      { text: "Hiring a cleaning service", type: "The Adventurer" }
+      { text: "Diving right into hands-on activities", type: "The Adventurer" },
+      { text: "Reading and researching before starting", type: "The Bookworm" },
+      { text: "Watching a YouTube video while relaxing on the couch", type: "The Homebody" },
+      { text: "Learning in a group setting", type: "The Social Butterfly" }
     ]
   },
   {
-    text: "You're most likely to get annoyed by a roommate who:",
+    text: "When you have a free day with no obligations, you:",
     answers: [
-      { text: "Is too loud", type: "The Bookworm" },
-      { text: "Doesn't clean up", type: "The Organizer" },
-      { text: "Is always having people over", type: "The Zen Master" },
-      { text: "Borrows your things without asking", type: "The Chef" }
+      { text: "Plan your next travel adventure", type: "The Adventurer" },
+      { text: "Spend time nurturing your indoor garden", type: "The Green Thumb" },
+      { text: "Do as little as physically possible", type: "The Homebody" },
+      { text: "Wake up early for a productive day", type: "The Early Bird" }
     ]
   },
   {
-    text: "In a group project, you are the one who:",
+    text: "The type of movie you'd prefer to watch on a movie night is:",
     answers: [
-      { text: "Keeps everyone on track", type: "The Organizer" },
-      { text: "Comes up with creative ideas", type: "The Adventurer" },
-      { text: "Does the bulk of the work quietly", type: "The Homebody" },
-      { text: "Ensures the group vibe is good", type: "The Social Butterfly" }
+      { text: "A documentary on a fascinating historical figure", type: "The Bookworm" },
+      { text: "An action-packed adventure film", type: "The Adventurer" },
+      { text: "A feel-good movie that brings everyone together", type: "The Social Butterfly" },
+      { text: "A comfort film that helps you relax", type: "The Homebody" }
     ]
   },
   {
-    text: "Your idea of a relaxing evening involves:",
+    text: "When it comes to interior decoration, your space is:",
     answers: [
-      { text: "A DIY spa night", type: "The Zen Master" },
-      { text: "Gaming until late", type: "The Tech Wizard" },
-      { text: "Reading or writing", type: "The Bookworm" },
-      { text: "Cooking a new dish", type: "The Chef" }
+      { text: "Filled with books and cozy reading nooks", type: "The Bookworm" },
+      { text: "A collection of travel memorabilia and adventure gear", type: "The Adventurer" },
+      { text: "Cozy and perfect for a late night movie", type: "The Night Owl" },
+      { text: "Green and alive with plants in every corner", type: "The Green Thumb" }
     ]
   },
   {
-    text: "How do you feel about sharing your living space with someone else?",
+    text: "Your preferred way to spend time with friends is:",
     answers: [
-      { text: "I enjoy the company", type: "The Social Butterfly" },
-      { text: "It's fine, as long as my routines are respected", type: "The Early Bird" },
-      { text: "I prefer my own space but can adjust", type: "The Homebody" },
-      { text: "Great, as long as they're as adventurous as I am", type: "The Adventurer" }
+      { text: "Hosting a dinner party with gourmet dishes", type: "The Chef" },
+      { text: "Going out to the hottest social spots in town", type: "The Social Butterfly" },
+      { text: "A quiet evening chatting over tea", type: "The Zen Master" },
+      { text: "A movie night", type: "The Homebody" }
+    ]
+  },
+
+  {
+    text: "When faced with a weekend DIY project, you:",
+    answers: [
+      { text: "Start early in the morning to make the most of the day", type: "The Early Bird" },
+      { text: "Turn it into a fun group activity with friends", type: "The Social Butterfly" },
+      { text: "Research and plan every detail before starting", type: "The Organizer" },
+      { text: "Find a way to incorporate new tech or gadgets into the project", type: "The Tech Wizard" }
+    ]
+  },
+
+  {
+    text: "Your approach to weekends is best described as:",
+    answers: [
+      { text: "Catching up on personal projects and hobbies", type: "The Bookworm" },
+      { text: "Planning an outdoor adventure or trip", type: "The Adventurer" },
+      { text: "Enjoying quiet time at home to recharge", type: "The Homebody" },
+      { text: "Going to a coffee shop that also sells plants", type: "The Green Thumb" }
     ]
   },
   {
-    text: "Your desk/work area is usually:",
+    text: "Your method of dealing with disagreements in the household is:",
     answers: [
-      { text: "Spotless and highly organized", type: "The Organizer" },
-      { text: "A bit cluttered but I know where everything is", type: "The Night Owl" },
-      { text: "Full of tech gadgets and tools", type: "The Tech Wizard" },
-      { text: "Decorated with plants and calming items", type: "The Green Thumb" }
+      { text: "Open and honest communication to resolve issues quickly", type: "The Zen Master" },
+      { text: "A structured meeting to discuss and plan solutions", type: "The Organizer" },
+      { text: "Trying to lighten the mood with humor and compromise", type: "The Social Butterfly" },
+      { text: "Offering tech-based solutions to avoid future conflicts", type: "The Tech Wizard" }
     ]
   },
   {
-    text: "When faced with a problem, you:",
+    text: "In terms of personal space and belongings, you:",
     answers: [
-      { text: "Look for a logical, structured solution", type: "The Organizer" },
-      { text: "Discuss it with friends for different perspectives", type: "The Social Butterfly" },
-      { text: "Retreat and think it through on my own", type: "The Homebody" },
-      { text: "Dive in and learn by doing", type: "The Adventurer" }
+      { text: "Have a specific place for everything and value organization", type: "The Organizer" },
+      { text: "Don't mind sharing but appreciate when people ask first", type: "The Homebody" },
+      { text: "Are all about the latest gadgets, even if it means a little clutter", type: "The Tech Wizard" },
+      { text: "Prefer spaces that foster community and shared experiences", type: "The Social Butterfly" }
     ]
   },
   {
-    text: "When it comes to personal projects, you:",
+    text: "When it comes to mealtime in your household, you:",
     answers: [
-      { text: "Have a list and steadily work through them", type: "The Organizer" },
-      { text: "Start many but finish few", type: "The Social Butterfly" },
-      { text: "Deep dive into one and see it to the end", type: "The Bookworm" },
-      { text: "Often get sidetracked by new ideas", type: "The Chef" }
+      { text: "Enjoy experimenting with new recipes and cuisines", type: "The Chef" },
+      { text: "Prefer a quick and efficient meal prep routine", type: "The Early Bird" },
+      { text: "Love eating fresh fruits and veggies", type: "The Green Thumb" },
+      { text: "Opt for meals that require minimal cleanup", type: "The Night Owl" }
     ]
   },
   {
-    text: "You prefer your living space to be:",
+    text: "How do you prefer to start your day?",
     answers: [
-      { text: "Neat, with everything in its place", type: "The Organizer" },
-      { text: "Comfortable and welcoming", type: "The Homebody" },
-      { text: "Filled with memories from your travels", type: "The Adventurer" },
-      { text: "A place where friends can gather", type: "The Social Butterfly" }
+      { text: "With a morning meditation or yoga session", type: "The Zen Master" },
+      { text: "By reviewing your to-do list and planning your day", type: "The Organizer" },
+      { text: "By watering all the plants in your home", type: "The Green Thumb" },
+      { text: "Bright and early with a good cup of coffee", type: "The Early Bird" }
+    ]
+  },
+
+  {
+    text: "What's your go-to activity for unwinding after a stressful day?",
+    answers: [
+      { text: "Diving into a new or favorite video game", type: "The Tech Wizard" },
+      { text: "Tending to your indoor garden and plants", type: "The Green Thumb" },
+      { text: "Starting a DIY or craft project", type: "The Early Bird" },
+      { text: "Watching documentaries or educational content", type: "The Bookworm" }
     ]
   },
   {
-    text: "On a day off, you're most likely to be found:",
+    text: "Which weekend project sounds most appealing to you?",
     answers: [
-      { text: "Exploring the outdoors", type: "The Adventurer" },
-      { text: "Tinkering with tech or gadgets", type: "The Tech Wizard" },
-      { text: "Catching up on sleep", type: "The Night Owl" },
-      { text: "Gardening or caring for plants", type: "The Green Thumb" }
+      { text: "Building or coding a new gadget or app", type: "The Tech Wizard" },
+      { text: "Reorganizing and decluttering your living space", type: "The Organizer" },
+      { text: "Hosting a themed dinner party for friends", type: "The Chef" },
+      { text: "Creating a new workout or outdoor adventure plan", type: "The Adventurer" }
     ]
   },
   {
-    text: "Your go-to method for unwinding after a long day is:",
+    text: "How do you make your living space feel like home?",
     answers: [
-      { text: "A quiet evening with a book", type: "The Bookworm" },
-      { text: "Cooking a nice meal", type: "The Chef" },
-      { text: "A long walk or run", type: "The Early Bird" },
-      { text: "Meditation or yoga", type: "The Zen Master" }
+      { text: "By hanging art and photos that inspire you", type: "The Social Butterfly" },
+      { text: "Setting up a dedicated space for meditation or reflection", type: "The Zen Master" },
+      { text: "Ensuring there's a cozy reading nook with plenty of books", type: "The Bookworm" },
+      { text: "Installing smart home devices for convenience", type: "The Tech Wizard" }
+    ]
+  },
+
+  {
+    text: "Your ideal way to celebrate a personal achievement is:",
+    answers: [
+      { text: "A quiet night in, reflecting on your accomplishment", type: "The Homebody" },
+      { text: "An adventurous trip to somewhere new", type: "The Adventurer" },
+      { text: "A party with close friends and family", type: "The Social Butterfly" },
+      { text: "Buying yourself a new book or tech gadget", type: "The Tech Wizard" }
     ]
   },
   {
-    text: "Your friends would describe you as:",
+    text: "What's your preferred method of staying in touch with friends?",
     answers: [
-      { text: "The planner of the group", type: "The Organizer" },
-      { text: "The life of the party", type: "The Social Butterfly" },
-      { text: "A bit of a loner", type: "The Homebody" },
-      { text: "Always up for anything", type: "The Adventurer" }
-    ]
-  },
-  {
-    text: "When it comes to dealing with stress, you:",
-    answers: [
-      { text: "Make lists and organize your tasks", type: "The Organizer" },
-      { text: "Call a friend to talk it out", type: "The Social Butterfly" },
-      { text: "Seek solitude and quiet", type: "The Homebody" },
-      { text: "Find a physical outlet or adventure", type: "The Adventurer" }
-    ]
-  },
-  {
-    text: "How do you usually make important decisions?",
-    answers: [
-      { text: "After thorough research and planning", type: "The Organizer" },
-      { text: "Spontaneously, going with your gut feeling", type: "The Adventurer" },
-      { text: "Discussing it with friends and family", type: "The Social Butterfly" },
-      { text: "Taking your time to weigh all options", type: "The Homebody" }
+      { text: "Regularly scheduled video calls or meetups", type: "The Organizer" },
+      { text: "Sending updates and photos through social media", type: "The Social Butterfly" },
+      { text: "Crafting personalized letters or emails", type: "The Bookworm" },
+      { text: "Group chats for sharing memes and quick messages", type: "The Tech Wizard" }
     ]
   }
+  
 ];
