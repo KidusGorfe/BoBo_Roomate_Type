@@ -21,9 +21,12 @@
 <div class="container hidden" id="email-signup-container">
     <div class="email-signup-container">
         <p>Sign up with your email to start the quiz!</p>
-        <form id="email-signup-form">
-            <input type="text" id="name-input" placeholder="Enter your name" required>
-            <input type="email" id="email-input" placeholder="Enter your email" required>
+        <!-- Form with Netlify attributes for easy form collection -->
+        <form name="quiz-signup" method="post" data-netlify="true" id="email-signup-form">
+            <!-- Input fields for name and email -->
+            <input type="text" name="name" id="name-input" placeholder="Enter your name" required>
+            <input type="email" name="email" id="email-input" placeholder="Enter your email" required>
+            <!-- Button to submit the form -->
             <button type="submit" class="btn">Sign Up</button>
         </form>
     </div>
