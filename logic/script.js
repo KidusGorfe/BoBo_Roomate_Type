@@ -4,8 +4,6 @@ document.addEventListener('DOMContentLoaded', () => {
     class QuizGame {
         constructor() {
             console.log('Initializing QuizGame instance...');
-            this.introContainer = document.getElementById('intro-container');
-            this.emailSignupContainer = document.getElementById('email-signup-container');
             this.quizContainer = document.getElementById('quiz-container');
             this.questionElement = document.getElementById('question');
             this.answerButtonsElement = document.getElementById('answer-buttons');
@@ -14,33 +12,12 @@ document.addEventListener('DOMContentLoaded', () => {
             this.progressBarText = document.getElementById('progress-text');
             this.currentQuestionIndex = 0;
             this.typeScores = {};
-            this.userName = '';
 
-            this.questions = window.questions;
-            this.roommateTypeDescriptions = window.roommateTypeDescriptions;
+            // Ensure these are named correctly to match your actual JS file and object names
+            this.questions = window.questions; // This should contain your quiz questions
+            this.roommateTypeDescriptions = window.descriptions; // Adjusted to use the provided descriptions object
 
-            this.setupEventListeners();
-        }
-
-        setupEventListeners() {
-            console.log('Setting up event listeners...');
-            document.getElementById('begin-quiz-btn').addEventListener('click', () => {
-                console.log('Begin quiz button clicked.');
-                this.introContainer.classList.add('hidden');
-                this.emailSignupContainer.classList.remove('hidden');
-            });
-
-            document.getElementById('email-signup-form').addEventListener('submit', (event) => {
-                console.log('Email signup form submitted.');
-                event.preventDefault();
-                this.userName = document.getElementById('name-input').value.trim();
-                if (this.userName === '') {
-                    alert('Please enter your name.');
-                    return;
-                }
-                this.emailSignupContainer.classList.add('hidden');
-                this.startQuiz();
-            });
+            this.startQuiz();
         }
 
         startQuiz() {
@@ -85,7 +62,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
         updateProgressBar() {
             const progress = ((this.currentQuestionIndex + 1) / this.questions.length) * 100;
-            console.log('Updating progress bar:', progress.toFixed(2), '%');
             this.progressBar.style.width = `${progress}%`;
             this.progressBarText.innerText = `Question ${this.currentQuestionIndex + 1} of ${this.questions.length}`;
         }
@@ -98,28 +74,25 @@ document.addEventListener('DOMContentLoaded', () => {
         }
 
         showResult() {
-            console.log('Displaying result...');
-            
             const sortedTypes = Object.keys(this.typeScores).sort((a, b) => this.typeScores[b] - this.typeScores[a]);
             const primaryType = sortedTypes[0];
-            const secondaryType = sortedTypes[1] || null; // Handle case where there might not be a clear secondary type.
-            
             const primaryInfo = this.roommateTypeDescriptions[primaryType];
-            const secondaryInfo = secondaryType ? this.roommateTypeDescriptions[secondaryType] : null;
-            
-            let resultHtml = `<h2>Your Primary Roommate Type: ${primaryType}</h2><p>${primaryInfo.description}</p><img src="${primaryInfo.gifUrl}" alt="GIF for ${primaryType}" style="max-width:100%; height:auto;">`;
-            
-            if (secondaryInfo) {
-                resultHtml += `<h2>Your Secondary Roommate Type: ${secondaryType}</h2><p>${secondaryInfo.description}</p><img src="${secondaryInfo.gifUrl}" alt="GIF for ${secondaryType}" style="max-width:100%; height:auto;">`;
-            }
-            
+        
+            let resultHtml = `<h2>Your Primary Roommate Type: ${primaryType}</h2>
+                              <p><strong>Positive:</strong> ${primaryInfo.positive}</p>
+                              <p><strong>Negative:</strong> ${primaryInfo.negative}</p>`;
+        
+            // Clear the result container's existing content
             this.resultContainer.innerHTML = resultHtml;
-        }
+        
+            // Create a div to safely insert the iframe HTML
+            const gifContainer = document.createElement('div');
+            gifContainer.innerHTML = primaryInfo.gifUrl; // Inserts the iframe embed code safely
+            this.resultContainer.appendChild(gifContainer);
+        }            
     }
 
-    // Initialization check.
-    if (window.questions && window.roommateTypeDescriptions) {
-        console.log('Questions and descriptions available. Initializing QuizGame...');
+    if (window.questions && window.descriptions) {
         new QuizGame();
     } else {
         console.error('Quiz initialization failed: Missing questions or descriptions.');

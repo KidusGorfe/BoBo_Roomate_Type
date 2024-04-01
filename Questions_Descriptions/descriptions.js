@@ -1,46 +1,22 @@
-var roommateTypeDescriptions = {
-    "The Organizer": {
-        description: "The Organizer is the type who alphabetizes their spice rack and color-codes their closet. They're on a first-name basis with the Container Store employees and think a fun Friday night involves a label maker. Beware: their idea of 'messy' is leaving one coffee cup in the sink.",
-        gifUrl: "https://media.giphy.com/media/1oJRRiSteRVLHf7JKH/giphy.gif"
+var descriptions = {
+    "The Party Rocker": {
+        positive: "Life with a Party Rocker is never dull. Their magnetic personality pulls everyone into their orbit of fun and unpredictability. They're the architects of unforgettable nights and the creators of cherished memories, turning the mundane into the extraordinary.",
+        negative: "Their whirlwind lifestyle means plans change at the blink of an eye, and their concept of 'tidy' might just be 'able to see the floor.' Living with them requires a high tolerance for last-minute changes and a knack for navigating through piles of who-knows-what.",
+        gifUrl: `<iframe src="https://giphy.com/embed/IP9FNJuz0uNLG" width="480" height="241" frameBorder="0" class="giphy-embed" allowFullScreen></iframe><p><a href="https://giphy.com/gifs/vevo-animated-gif-shufflebots-IP9FNJuz0uNLG">via GIPHY</a></p>` // Direct embed link as a string
     },
-    "The Social Butterfly": {
-        description: "The Social Butterfly treats the apartment like a reality TV show set, where every night is a new episode filled with drama, laughter, and unexpected guests. They don't believe in 'too much party' and think silence is just unexplored space for conversation.",
-        gifUrl: "https://media.giphy.com/media/CX67hRmiw24o6Kvzfq/giphy.gif"
+    "The Role Model": {
+        positive: "The Role Model is your go-to for a perfectly orchestrated game night or potluck. They combine their love for people with a love for lists, making sure every social gathering runs smoothly. Their organizational skills ensure that bills are paid on time, and the common areas are Pinterest-worthy.",
+        negative: "Sometimes, their love for order can tip into control territory. Their detailed plans don't always leave room for spontaneity, and their color-coded cleaning schedule might feel a bit like homework. And there is a small chance that if things don’t go to plan they might lose it!",
+        gifUrl: `<iframe src="https://giphy.com/embed/L3ut1TkDIqduYKM21D" width="480" height="357" frameBorder="0" class="giphy-embed" allowFullScreen></iframe><p><a href="https://giphy.com/gifs/startrek-picard-captain-stng1-L3ut1TkDIqduYKM21D">via GIPHY</a></p>` // Direct embed link as a string
     },
-    "The Homebody": {
-        description: "The Homebody has likely nested in the living room with a personal blanket fort. They treat the house like a personal hobbit hole, perfect for hibernation and not seeing the sun for days. They believe 'going out' is just a myth created by extroverts.",
-        gifUrl: "https://media.giphy.com/media/UsSqh1tDV8rVUZCJF3/giphy.gif"
+    "The Starving Artist": {
+        positive: "A Starving Artist’s room is an inspiring den of chaos where creativity knows no bounds. Their passionate pursuits can range from painting to coding, often leaving a trail of materials and gadgets in their wake. Their independence is admirable, fueling innovation and self-discovery.",
+        negative: "Their creative process can sometimes mean the rest of the house becomes collateral damage in their latest project. Finding a common space that hasn't been commandeered for their latest masterpiece can be a challenge.",
+        gifUrl: `<iframe src="https://giphy.com/embed/xT39D7GQo1m3LatZyU" width="480" height="258" frameBorder="0" class="giphy-embed" allowFullScreen></iframe><p><a href="https://giphy.com/gifs/endlesspoetry-alejandro-jodorowsky-endless-poetry-xT39D7GQo1m3LatZyU">via GIPHY</a></p>` // Direct embed link as a string
     },
-    "The Adventurer": {
-        description: "The Adventurer is a mythical creature you're not sure actually lives in the house. Evidence of their existence includes a mysterious collection of souvenirs from around the world and occasional sightings at odd hours. They live by the motto, 'Why sleep when you can explore?'",
-        gifUrl: "https://media.giphy.com/media/3NeQ2b340ODhVhDiaN/giphy.gif"
-    },
-    "The Night Owl": {
-        description: "The Night Owl thrives in the darkness, their creativity sparking when everyone else is asleep. The fridge light is their sun, and they consider 3 AM an excellent time to start philosophical debates or craft their next masterpiece.",
-        gifUrl: "https://media.giphy.com/media/h5NmMolgdFcVW/giphy.gif"
-    },
-    "The Early Bird": {
-        description: "The Early Bird annoyingly chirps about their morning run and smoothie while you're still struggling with the concept of consciousness. They've accomplished more by 8 AM than most do in a day and are suspiciously chipper before coffee.",
-        gifUrl: "https://media.giphy.com/media/82CQozWEtaJccC1OPT/giphy.gif"
-    },
-    "The Chef": {
-        description: "The Chef sees the kitchen as their stage, experimenting with recipes from around the globe. They believe that every meal is an opportunity for a culinary adventure, often leaving a trail of dishes and satisfied taste buds in their wake.",
-        gifUrl: "https://media.giphy.com/media/l1TJTwU3VfPHU4FCbx/giphy.gif"
-    },
-    "The Green Thumb": {
-        description: "The Green Thumb has transformed the space into an indoor jungle, believing that plants are roommates too. Their care extends to every leaf and stem, creating an oasis that purifies the air and their souls.",
-        gifUrl: "https://media.giphy.com/media/a0KBCGQDHKidO/giphy.gif"
-    },
-    "The Zen Master": {
-        description: "The Zen Master seeks harmony and balance in the living environment, turning the space into a retreat for mindfulness and meditation. Their presence is calming, often found sipping tea or practicing yoga in the living room.",
-        gifUrl: "https://media.giphy.com/media/H7kfFDvD9HSYGRbvid/giphy.gif"
-    },
-    "The Tech Wizard": {
-        description: "The Tech Wizard's room is a cave of gadgets, wires, and blinking lights. They're the go-to for fixing Wi-Fi issues or setting up the home theater system, often while mumbling about the latest tech trends.",
-        gifUrl: "https://media.giphy.com/media/l0ExsgrTuACbtPaqQ/giphy.gif"
-    },
-    "The Bookworm": {
-        description: "The Bookworm's territory is a library of tales and knowledge, with stacks of books in every corner. Quiet and thoughtful, they're often lost in another world, only emerging for the occasional snack or discussion about their latest read.",
-        gifUrl: "https://media.giphy.com/media/SU1Ky519kXirC/giphy.gif"
+    "The Zen Zone": {
+        positive: "The Zen Zone creates a sanctuary of calm and order. Their minimalist approach and impeccable organization make their space a soothing retreat from the world's chaos. They're reflective, deeply thoughtful, and their self-sufficiency can be a bastion of peace in a hectic household.",
+        negative: "Their need for order and solitude can sometimes clash with the communal aspects of shared living. Their strict adherence to routines and minimalist living might not always accommodate the unpredictable nature of other roommates' lives.",
+        gifUrl: `<iframe src="https://giphy.com/embed/3o7btSlEkVbvtjkW3K" width="480" height="257" frameBorder="0" class="giphy-embed" allowFullScreen></iframe><p><a href="https://giphy.com/gifs/foxhomeent-yoga-peace-3o7btSlEkVbvtjkW3K">via GIPHY</a></p>` // Direct embed link as a string
     }
 };

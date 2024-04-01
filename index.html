@@ -4,57 +4,30 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Roommate Quiz</title>
-    <link rel="stylesheet" href="./styling/style.css"> 
+    <link rel="stylesheet" href="./styling/style.css">
 </head>
 <body>
-
-<!-- Introduction Container -->
-<div class="container" id="intro-container">
-    <div class="introduction-container">
-        <h1>Welcome to the Roommate Quiz!</h1>
-        <p>Find out what type of roommate you are.</p>
-        <button id="begin-quiz-btn" class="btn">Start Quiz</button>
-    </div>
-</div>
-
-<!-- Email Signup Container -->
-<div class="container hidden" id="email-signup-container">
-    <div class="email-signup-container">
-        <p>Sign up with your email to start the quiz!</p>
-        <!-- Form with Netlify attributes for easy form collection -->
-        <form name="quiz-signup" method="post" data-netlify="true" id="email-signup-form">
-            <!-- Input fields for name and email -->
-            <input type="text" name="name" id="name-input" placeholder="Enter your name" required>
-            <input type="email" name="email" id="email-input" placeholder="Enter your email" required>
-            <!-- Button to submit the form -->
-            <button type="submit" class="btn">Sign Up</button>
-        </form>
-    </div>
-</div>
-
-<!-- Quiz Container -->
-<div class="container hidden" id="quiz-container">
-    <div class="progress-container">
-        <div class="progress-bar" id="progress-bar"></div>
-        <div class="progress-text" id="progress-text"></div>
+    <!-- Quiz Container -->
+    <div class="container" id="quiz-container">
+        <div class="progress-container">
+            <div class="progress-bar" id="progress-bar"></div>
+            <div class="progress-text" id="progress-text">Question 1 of X</div>
+        </div>
+        <div class="question-container" id="actual-question-container">
+            <p id="question"></p>
+            <div class="answer-buttons" id="answer-buttons"></div>
+        </div>
     </div>
 
-    <div class="question-container" id="actual-question-container">
-        <p id="question"></p>
-        <div class="answer-buttons" id="answer-buttons"></div>
+    <!-- Result Container -->
+    <div class="container hidden" id="result-container">
+        <div class="result-content">
+            <!-- Results will be populated here -->
+        </div>
     </div>
-</div>
 
-<!-- Result Container -->
-<div class="container hidden" id="result-container">
-    <div class="result-content">
-        <!-- Results will be populated here -->
-    </div>
-</div>
-
-<script src="./Questions_Descriptions/descriptions.js"></script>
-<script src="./Questions_Descriptions/questions.js"></script>
-<script src="./logic/script.js"></script>
-
+    <script src="./Questions_Descriptions\descriptions.js"></script>
+    <script src="./Questions_Descriptions\questions.js"></script>
+    <script src="./logic/script.js"></script>
 </body>
 </html>
