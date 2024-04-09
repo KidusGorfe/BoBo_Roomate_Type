@@ -13,9 +13,8 @@ document.addEventListener('DOMContentLoaded', () => {
             this.currentQuestionIndex = 0;
             this.typeScores = {};
 
-            // Ensure these are named correctly to match your actual JS file and object names
-            this.questions = window.questions; // This should contain your quiz questions
-            this.roommateTypeDescriptions = window.descriptions; // Adjusted to use the provided descriptions object
+            this.questions = window.questions;
+            this.roommateTypeDescriptions = window.descriptions;
 
             this.startQuiz();
         }
@@ -77,14 +76,15 @@ document.addEventListener('DOMContentLoaded', () => {
             const sortedTypes = Object.keys(this.typeScores).sort((a, b) => this.typeScores[b] - this.typeScores[a]);
             const primaryType = sortedTypes[0];
             const primaryInfo = this.roommateTypeDescriptions[primaryType];
-        
+            const compatibleType = primaryInfo.CompatibleWith;
+
             let resultHtml = `<h2>Your Primary Roommate Type: ${primaryType}</h2>
-                              <p><strong>Positive:</strong> ${primaryInfo.positive}</p>
-                              <p><strong>Negative:</strong> ${primaryInfo.negative}</p>`;
-        
+                              <p>${primaryInfo.Description}</p>
+                              <p><strong>Compatible with:</strong> ${compatibleType}</p>`;
+
             // Clear the result container's existing content
             this.resultContainer.innerHTML = resultHtml;
-        
+
             // Create a div to safely insert the iframe HTML
             const gifContainer = document.createElement('div');
             gifContainer.innerHTML = primaryInfo.gifUrl; // Inserts the iframe embed code safely

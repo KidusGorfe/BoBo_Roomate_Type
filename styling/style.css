@@ -1,113 +1,121 @@
 /* Global Styles */
 body {
-    font-family: 'Poppins', sans-serif;
-    margin: 0;
-    padding: 0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    min-height: 100vh;
-    background-color: #fffdde;
-    color: #333; /* Enhanced readability against a light background */
-    background-image: linear-gradient(135deg, #ff9a9e 10%, #fad0c4 100%);
-  }
-  
-  /* Container Styles */
+  font-family: 'Poppins', sans-serif;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background-color: #fffdde;
+  color: #333;
+  background-image: linear-gradient(135deg, #ff9a9e 10%, #fad0c4 100%);
+}
+
+/* Container Styles */
+.container {
+  background-color: #ffffff;
+  padding: 30px;
+  border-radius: 15px;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+  max-width: 600px;
+  width: 100%;
+  border: 1px solid #eee;
+  margin-top: 20px;
+  transition: opacity 0.5s ease-in-out;
+}
+
+/* Button Styles */
+.btn,
+.answer-buttons button {
+  background-color: #ff5a5f;
+  color: #ffffff;
+  border: none;
+  border-radius: 50px;
+  padding: 12px 24px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: transform 0.2s, box-shadow 0.2s;
+  margin-top: 10px;
+  width: auto;
+  display: inline-block;
+}
+
+.btn:hover,
+.answer-buttons button:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Progress Bar */
+.progress-bar {
+  background-color: #ffc107;
+  height: 8px;
+  border-radius: 4px;
+}
+
+.progress-text {
+  font-size: 0.875rem;
+  color: #666;
+  margin-top: 15px;
+}
+
+/* Result Container */
+.result-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  background-color: #f8f9fa;
+  border-radius: 8px;
+  margin-top: 20px;
+  width: 100%;
+  min-height: 300px;
+  padding: 30px;
+  opacity: 1;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2); /* Add a subtle shadow effect to text */
+}
+
+.result-container h2,
+.result-container p {
+  color: #007bff;
+  font-size: 1rem;
+  margin-bottom: 20px; /* Improved spacing between elements */
+}
+
+.result-container h2 {
+  font-size: 1.75rem;
+  margin-bottom: 30px; /* Larger spacing between heading and paragraph */
+  background: linear-gradient(to right, #007bff, #00bfff); /* Add a gradient background to the heading */
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.result-container p {
+  color: #444; /* Darken the text color for better contrast */
+  font-style: italic; /* Add italic style to paragraphs */
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
   .container {
-    background-color: #ffffff;
-    padding: 30px;
-    border-radius: 15px;
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
-    max-width: 600px;
-    width: 100%;
-    border: 1px solid #eee;
-    margin-top: 20px;
-    transition: opacity 0.5s ease-in-out; /* Smooth transition for visibility changes */
+    padding: 20px;
   }
-  
-  /* Button Styles */
-  .btn, .answer-buttons button {
-    background-color: #ff5a5f;
-    color: #ffffff;
-    border: none;
-    border-radius: 50px;
-    padding: 12px 24px;
-    font-size: 1rem;
-    font-weight: 600;
-    cursor: pointer;
-    transition: transform 0.2s, box-shadow 0.2s;
-    margin-top: 10px;
-    width: auto;
-    display: inline-block;
+
+  .btn,
+  .answer-buttons button {
+    font-size: 0.9rem;
   }
-  
-  .btn:hover, .answer-buttons button:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  }
-  
-  /* Progress Bar */
-  .progress-bar {
-    background-color: #ffc107;
-    height: 8px;
-    border-radius: 4px;
-  }
-  
-  .progress-text {
-    font-size: 0.875rem;
-    color: #666; /* Darkened for better contrast and readability */
-    margin-top: 15px;
-  }
-  
-  /* Result Container */
-  .result-container {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    background-color: #f8f9fa;
-    border-radius: 8px;
-    margin-top: 20px;
-    width: 100%;
-    min-height: 300px; /* Adjusted for visibility and vertical centering */
-    padding: 20px 0;
-    opacity: 1; /* Ensure full visibility when not hidden */
-  }
-  
-  .result-content img {
-    display: block;
-    margin: 0 auto; /* This centers the image within its container */
-    max-width: 100%; /* Ensures the image is responsive and does not overflow its container */
-    height: auto; /* Maintains aspect ratio */
-  }
-  
-  .result-container h2, .result-container p {
-    color: #007bff; /* Consistent and improved readability */
-    font-size: 1rem;
-  }
-  
-  .result-container h2 {
-    font-size: 1.75rem;
-  }
-  
-  /* Responsive Design */
-  @media (max-width: 768px) {
-    .container {
-      padding: 20px;
-    }
-  
-    .btn, .answer-buttons button {
-      font-size: 0.9rem;
-    }
-  }
-  
-  /* Hover Effect for Answer Buttons */
-  .answer-buttons button:hover {
-    background-color: #ff3d47; /* Consistent, slightly darker hover state for buttons */
-  }
-  
-  .hidden {
-    display: none; /* Remove opacity and pointer-events rules if you're using display: none */
-    transition: opacity 0.5s ease-in-out; /* This can be removed since display property does not animate */
-  }
+}
+
+/* Hover Effect for Answer Buttons */
+.answer-buttons button:hover {
+  background-color: #ff3d47;
+}
+
+.hidden {
+  display: none;
+  transition: opacity 0.5s ease-in-out;
+}
